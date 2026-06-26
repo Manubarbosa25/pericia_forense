@@ -152,13 +152,13 @@
             margin-bottom:  20px;              
             box-shadow:  0  4px  20px  rgba(0,0,0,0.3);              
             display:  none;    
-            text-align: center; /* Centraliza textos gerais de maneira uniforme */
+            text-align: center; 
         }           
 
         section.secao-visivel  {              
             display:  flex;
             flex-direction: column;
-            align-items: center; /* Força o alinhamento centralizado de todos os blocos filhos */
+            align-items: center; 
         }           
 
         h2  {              
@@ -181,29 +181,53 @@
         p  {              
             margin-bottom:  15px;              
             color:  #cbd5e1;              
-            text-align:  center; /* Garante a harmonia em telas estreitas */
+            text-align:  center; 
             font-size:  1rem;          
             max-width: 600px;
         }           
 
+        /* ==========================================================================
+            NOVOS ESTILOS DE MOVIMENTO PARA AS IMAGENS (Efeito Forense / Cyber)
+        ============================================================================ */
         .banner-imagem  {              
             width:  100%;              
-            max-width: 450px; /* Impede que a imagem fique esticada ou gigante */
+            max-width: 450px; 
             height:  180px; 
             object-fit:  cover;              
             border-radius:  6px;              
             border:  1px  solid  var(--azul-cyber);              
-            margin:  15px  auto;              
-            box-shadow:  0  5px  15px  rgba(0,0,0,0.5);          
+            margin:  20px  auto;              
+            box-shadow:  0  5px  15px  rgba(0, 210, 255, 0.2);          
             display: block;
+            
+            /* Animação contínua de pulso e flutuação leve */
+            animation: flutuarCyber 4s ease-in-out infinite alternate;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
         }           
 
-        /* Alinhamento estruturado para as listas continuarem legíveis de forma centrada */
+        /* Efeito interativo ao tocar ou passar o mouse na imagem */
+        .banner-imagem:hover, .banner-imagem:active {
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
+            filter: brightness(1.1);
+        }
+
+        @keyframes flutuarCyber {
+            from {
+                transform: translateY(0px);
+                filter: drop-shadow(0 2px 5px rgba(0, 114, 255, 0.2));
+            }
+            to {
+                transform: translateY(-8px);
+                filter: drop-shadow(0 10px 15px rgba(0, 210, 255, 0.4));
+            }
+        }
+
         .lista-topicos  {              
             list-style-type:  none;              
             margin:  15px auto;          
             text-align: left;
-            max-width: 500px; /* Centraliza o bloco da lista no meio da tela */
+            max-width: 500px; 
             width: 100%;
         }           
 
@@ -263,7 +287,7 @@
             font-size:  1rem;              
             margin-bottom:  15px;              
             display:  block;          
-            text-align: center; /* Centraliza o cursor de digitação */
+            text-align: center; 
         }           
 
         .btn-geral  {              
@@ -300,7 +324,7 @@
             padding:  14px;              
             margin:  10px  0;              
             border-radius:  4px;              
-            text-align:  center; /* Respostas alinhadas centralmente no mobile */
+            text-align:  center; 
             cursor:  pointer;              
             transition:  all  0.2s  ease;  
             font-size:  0.95rem;          
@@ -364,8 +388,8 @@
             main { max-width: 800px; }
             section { padding: 40px; }
             h2 { font-size: 2rem; }
-            .banner-imagem { height: 350px; max-width: 100%; }
-            .opcao-btn { text-align: left; } /* Alinhamento à esquerda fica mais anatômico no PC */
+            .banner-imagem { height: 320px; max-width: 100%; }
+            .opcao-btn { text-align: left; } 
         }
     </style>  
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -393,37 +417,49 @@
                     <li><strong>Cadeia de Custódia:</strong> Obedece a padrões rígidos para garantir que dados de dispositivos eletrônicos ou nuvens não sofram contaminação externa.</li>                      
                     <li><strong>Importância Social:</strong> Atua diretamente na segurança de serviços bancários, contratos inteligentes e infraestruturas críticas contra fraudes de codificação complexas.</li>                  
                 </ul>                                    
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Cybersecurity Lab" class="banner-imagem">                                    
+                
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Cybersecurity Lab" class="banner-imagem">                                    
+                
                 <h3>Campos de Atuação Profissional</h3>                  
                 <ul class="lista-topicos">                      
                     <li>Verificação minuciosa de fraudes corporativas internas.</li>                      
                     <li>Auditoria técnica de sistemas de votação digital.</li>                      
                     <li>Recuperação de informações destruídas intencionalmente por agentes maliciosos.</li>                      
                     <li>Perícias em códigos-fonte envolvendo disputas de propriedade intelectual de softwares.</li>                  
-                </ul>             
+                </ul>       
+                
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Data Analysis Screen" class="banner-imagem">      
             </section>               
             
             <section id="crimes">                  
                 <h2>Crimes Digitais e Ecossistema de Fraudes</h2>                  
                 <p>As principais arquiteturas criminosas enfrentadas pelas equipes de perícia:</p>                                    
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Código Digital Binário" class="banner-imagem">                                    
+                
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Código Digital Binário" class="banner-imagem">                                    
+                
                 <ul class="lista-topicos">                      
                     <li><strong>Ransomware e Sequestro de Dados:</strong> Criptografia hostil de servidores corporativos com exigência de resgates em criptomoedas.</li>                     
                     <li><strong>Fraudes Financeiras e Engenharia Social:</strong> Campanhas automatizadas de phishing que imitam portais bancários e roubam identidades.</li>                     
                     <li><strong>Exfiltração de Dados Sensíveis:</strong> Uso de cavalos de troia e malwares espiões para espionagem corporativa e violação da LGPD.</li>                     
                     <li><strong>Ataques de Negação de Serviço (DDoS):</strong> Direcionamento de acessos falsos por redes zumbis (Botnets) para derrubar servidores.</li>                 
-                </ul>              
+                </ul>     
+                
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Data Center Servers" class="banner-imagem">         
             </section>               
             
             <section id="metodologia">                  
                 <h2>Metodologia e Fases da Investigação Forense</h2>                  
                 <p>Diretrizes essenciais baseadas nas normas internacionais (ISO/IEC 27037):</p>                                    
-                <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=1200&q=80" alt="Manutenção e Análise de Circuitos Eletrônicos" class="banner-imagem">                                    
+                
+                <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=600&q=80" alt="Manutenção e Análise de Circuitos Eletrônicos" class="banner-imagem">                                    
+                
                 <ul class="lista-topicos">                      
                     <li><strong>1. Identificação e Preservação Extrema:</strong> Mapeamento físico e lógico das mídias (RAM, discos, logs). Uso de bloqueadores de escrita para impedir alterações nos bits originais.</li>                      
                     <li><strong>2. Coleta e Espelhamento Forense:</strong> Clonagem bit a bit gerando uma cópia idêntica. Cálculo imediato da assinatura matemática (Hash SHA-256) para blindar a integridade da evidência.</li>                      
                     <li><strong>3. Análise Científica Profunda:</strong> Exame do espaço não alocado dos discos para resgatar arquivos deletados, remontagem de linhas do tempo e quebra de criptografias ocultas.</li>                  
-                </ul>             
+                </ul>        
+                
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Digital Device Analysis" class="banner-imagem">     
             </section>               
             
             <section id="quiz-aba" class="secao-quiz">                  
@@ -431,6 +467,9 @@
                 <div class="quiz-container">                                           
                     <div id="tela-nome" class="tela-nome ativo">                          
                         <p style="margin-bottom: 20px;">Antes de iniciar a investigação simulada, insira suas credenciais abaixo para autenticar o relatório:</p>
+                        
+                        <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=600&q=80" alt="Cyber Security Access" class="banner-imagem" style="height: 140px; margin-bottom: 20px;">
+                        
                         <input type="text" id="nome-usuario" class="input-nome" placeholder="Digite seu nome completo..." autocomplete="off">
                         <button class="btn-geral" onclick="iniciarQuiz()">Iniciar Perícia</button>                      
                     </div>                       
