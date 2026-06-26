@@ -1,0 +1,228 @@
+<!DOCTYPE  html>  <html  lang="pt-BR">  <head>      <meta  charset="UTF-8">      <meta  name="viewport"  content="width=device-width,  initial-scale=1.0">      <title>Unidade  de  Perícia  Forense  Digital  |  Investigação  Cibernética</title>      <style>          /* ==========================================================================
+    1.  VARIÁVEIS  DE  DESIGN  &  PALETA  DE  CORES  (Cyber  /  Forense)             
+============================================================================ */
+ :root  {              --azul-profundo:  #050b14;              --azul-cyber:  #0072ff;              --azul-neon:  #00d2ff;              --cinza-suporte:  #101c2c;              --texto-claro:  #e2e8f0;              --amarelo-crime:  #ffd700;              --preto-crime:  #111111;              --sucesso:  #00e676;              --erro:  #ff1744;          }           /* ==========================================================================
+    2.  ESTILOS  GERAIS  DE  RESET  E  TIPOGRAFIA  (Fontes  Expandidas)             
+============================================================================ */
+ * {              box-sizing:  border-box;              margin:  0;              padding:  0;              font-family:  'Segoe  UI',  Tahoma,  Geneva,  Verdana,  sans-serif;          }           body  {              background-color:  var(--azul-profundo);              color:  var(--texto-claro);              line-height:  1.8;              overflow-x:  hidden;              font-size:  1.25rem;  /* Fonte  base  aumentada  */          }   
+/* ==========================================================================
+    3.  FAIXA  DE  PERÍCIA  CRIMINAL             
+============================================================================ */
+ .faixa-pericia  {              background:  repeating-linear-gradient(                  -45deg,                  var(--amarelo-crime),                  var(--amarelo-crime)  20px,                  var(--preto-crime)  20px,                  var(--preto-crime)  40px              );              height:  25px;              width:  100%;              box-shadow:  0  4px  15px  rgba(0,  0,  0,  0.5);              border-bottom:  2px  solid  var(--azul-cyber);              background-size:  56px  56px; /* Tamanho fixo para permitir animação fluida */          }           
+ /* Classes de Animação para a Faixa */
+ .faixa-animada {
+      animation: moverFaixa 2s linear infinite, piscarFaixa 0.5s ease infinite alternate;
+ }
+
+ @keyframes moverFaixa {
+      from { background-position: 0 0; }
+      to { background-position: 56px 0; }
+ }
+
+ @keyframes piscarFaixa {
+      from { filter: brightness(1); }
+      to { filter: brightness(1.4); }
+ }
+
+/* ==========================================================================
+    4.  CABEÇALHO  (HEADER)             
+============================================================================ */
+ header  {              background:  linear-gradient(135deg,  var(--cinza-suporte),  var(--azul-profundo));              padding:  50px  20px;              text-align:  center;              border-bottom:  3px  solid  var(--azul-cyber);              position:  relative;          }           header  h1  {              color:  var(--azul-neon);              font-size:  3.2rem;  /* Título  principal  expandido  */              letter-spacing:  2px;              text-transform:  uppercase;              text-shadow:  0  0  10px  rgba(0,  210,  255,  0.5);          }           header  p  {              font-size:  1.5rem;  /* Subtítulo  expandido  */              color:  #94a3b8;              margin-top:  15px;  
+}           /* ==========================================================================
+    NURSERY  DE  ABAS  (Sistema  de  Navegação  Interativo)             
+============================================================================ */
+ .nav-abas  {              display:  flex;              justify-content:  center;              background-color:  var(--azul-profundo);              border-bottom:  2px  solid  var(--azul-cyber);              flex-wrap:  wrap;              padding:  25px  10px;              gap:  15px;          }           .aba-btn  {              background-color:  var(--cinza-suporte);              color:  #94a3b8;              border:  2px  solid  var(--azul-cyber);              padding:  15px  25px;              font-size:  1.2rem;              font-weight:  bold;              cursor:  pointer;              border-radius:  6px;              transition:  all  0.3s  ease;              text-transform:  uppercase;              letter-spacing:  1px;              box-shadow:  0  4px  10px  rgba(0,  0,  0,  0.4);          }           .aba-btn:hover  {              color:  #ffffff;              background-color:  var(--azul-cyber);              border-color:  var(--azul-neon);              box-shadow:  0  0  15px  rgba(0,  114,  255,  0.6);              transform:  translateY(-2px);          }           .aba-btn.aba-ativa  {              color:  var(--azul-profundo);              background-color:  var(--azul-neon);              border-color:  #ffffff;              box-shadow:  0  0  20px  rgba(0,  210,  255,  0.8);              transform:  translateY(0);          }           /* ==========================================================================
+    5.  LAYOUT  PRINCIPAL  E  SEÇÕES  DE  CONTEÚDO  (Expandido  Totalmente)             
+============================================================================ */
+
+main  {              max-width:  calc(100%  -  60px);               margin:  40px  auto;              padding:  0  20px;          }           .grid-container  {              display:  block;               width:  100%;          }           section  {              background-color:  var(--cinza-suporte);              border:  1px  solid  rgba(0,  114,  255,  0.2);              border-radius:  8px;              padding:  40px;              margin-bottom:  30px;              box-shadow:  0  4px  20px  rgba(0,0,0,0.3);              display:  none;  /* Escondido  por  padrão  para  o  sistema  de  abas  */          }           section.secao-visivel  {              display:  block;  /* Revela  a  aba  ativa  */          }           h2  {              color:  var(--azul-neon);              margin-bottom:  25px;              border-left:  5px  solid  var(--azul-cyber);              padding-left:  15px;              font-size:  2.2rem;  /* Títulos  internos  expandidos  */          }           h3  {              font-size:  1.6rem;              margin-top:  25px;              margin-bottom:  15px;              color:  var(--azul-neon);          }           p  {              margin-bottom:  20px;              color:  #cbd5e1;              text-align:  justify;              font-size:  1.25rem;          }           /* Estilização  para  as  Novas  Imagens  Integradas  */  
+.banner-imagem  {              width:  100%;              max-height:  400px;              object-fit:  cover;              border-radius:  6px;              border:  1px  solid  var(--azul-cyber);              margin:  20px  0  30px  0;              box-shadow:  0  5px  15px  rgba(0,0,0,0.5);          }           .lista-topicos  {              list-style-type:  none;              margin-top:  20px;              margin-bottom:  20px;          }           .lista-topicos  li  {              margin-bottom:  18px;              padding-left:  35px;              position:  relative;              font-size:  1.25rem;              color:  #cbd5e1;          }           .lista-topicos  li::before  {              content:  " ➔ ";              position:  absolute;              left:  0;              color:  var(--azul-neon);          }          .lista-topicos  li  strong  {              color:  #ffffff;          }           /* ==========================================================================
+    6.  COMPONENTE  INTERATIVO:  QUIZ  FORENSE             
+============================================================================ */
+ .secao-quiz  {              background:  linear-gradient(145deg,  #13233c,  #0a1424);              border:  2px  solid  var(--azul-cyber);          }           .tela-nome,  .questao-bloco,  .tela-resultado  {              display:  none;          }           .ativo  {              display:  block;          }  
+ .input-nome  {              width:  100%;              max-width:  500px;              padding:  15px;              border:  1px  solid  var(--azul-cyber);              background-color:  var(--azul-profundo);              color:  var(--texto-claro);              border-radius:  4px;              font-size:  1.25rem;              margin-bottom:  20px;              display:  block;          }           .btn-geral  {              background-color:  var(--azul-cyber);              color:  white;              border:  none;              padding:  15px  35px;              font-weight:  bold;              border-radius:  4px;              cursor:  pointer;              text-transform:  uppercase;              transition:  background  0.3s;              font-size:  1.2rem;          }           .btn-geral:hover  {              background-color:  var(--azul-neon);              color:  var(--azul-profundo);          }           .opcoes-container  {              margin-top:  25px;          }           .opcao-btn  {              display:  block;              width:  100%;              background-color:  var(--azul-profundo);              color:  var(--texto-claro);              border:  1px  solid  rgba(0,  212,  255,  0.4);              padding:  18px;              margin:  12px  0;              border-radius:  4px;              text-align:  left;              cursor:  pointer;              transition:  all  0.2s  ease;  
+    font-size:  1.2rem;          }           .opcao-btn.correta  {              background-color:  var(--sucesso)  !important;              border-color:  #00c853  !important;              color:  var(--preto-crime)  !important;              font-weight:  bold;          }           .opcao-btn.incorreta  {              background-color:  var(--erro)  !important;              border-color:  #d50000  !important;              color:  white  !important;          }           .opcao-btn:disabled  {              cursor:  not-allowed;          }           .btn-proxima  {              background-color:  var(--amarelo-crime);              color:  var(--preto-crime);              border:  none;              padding:  15px  30px;              font-weight:  bold;              border-radius:  4px;              cursor:  pointer;              margin-top:  20px;              display:  none;              text-transform:  uppercase;              font-size:  1.1rem;          }           /* ==========================================================================
+    7.  RODAPÉ  (FOOTER)             
+============================================================================ */
+ footer  {              background-color:  var(--preto-crime);              text-align:  center;              padding:  30px;              margin-top:  60px;              border-top:  1px  solid  var(--azul-cyber);              font-size:  1.1rem;  
+    color:  #64748b;          }      </style>  
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>  <body>       <div  class="faixa-pericia"></div>       <header>          <h1>Perícia Forense Digital</h1>          <p>   Análise  de  Evidências,  Mitigação  de  Golpes  e  Proteção  da  Sociedade </p>      </header>       <nav  class="nav-abas">          <button  class="aba-btn  aba-ativa"  onclick="alternarAba('introducao',  this)">O Perito</button>          <button  class="aba-btn"  onclick="alternarAba('crimes',  this)">Crimes & Fraudes</button>          <button  class="aba-btn"  onclick="alternarAba('metodologia',  this)">Metodologia Forense</button>          <button  class="aba-btn"  onclick="alternarAba('quiz-aba',  this)">Desafio Quiz</button>      </nav>       <div  class="faixa-pericia"></div>       <main  class="grid-container">          <div  class="coluna-conteudo">                           <section  id="introducao"  class="secao-visivel">                  <h2>O Perito Forense em TI</h2>                  <p>Principais atribuições e pilares do especialista técnico digital:</p>                                    <ul class="lista-topicos">                      <li><strong>Função Básica:</strong> Responsável por identificar, rastrear e extrair vestígios materiais em ambientes digitais para fundamentar investigações e decisões judiciais.</li>                      <li><strong>Cadeia de Custódia:</strong> Obedece a padrões rígidos para garantir que dados de dispositivos eletrônicos ou nuvens não sofram contaminação externa.</li>                      <li><strong>Importância Social:</strong> Atua diretamente na segurança de serviços bancários, contratos inteligentes e infraestruturas críticas contra fraudes de codificação complexas.</li>                  </ul>                                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Cybersecurity Lab" class="banner-imagem">                                    <h3>Campos de Atuação Profissional</h3>                  <ul class="lista-topicos">                      <li>Verificação minuciosa de fraudes corporativas internas.</li>                      <li>Auditoria técnica de sistemas de votação digital.</li>                      <li>Recuperação de informações destruídas intencionalmente por agentes maliciosos.</li>                      <li>Perícias em códigos-fonte envolvendo disputas de propriedade intelectual de softwares.</li>                  </ul>             </section>               <section  id="crimes">                  <h2>Crimes Digitais e Ecossistema de Fraudes</h2>                  <p>As principais arquiteturas criminosas enfrentadas pelas equipes de perícia:</p>                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Código Digital Binário" class="banner-imagem">                                    <ul  class="lista-topicos">                      <li><strong>Ransomware e Sequestro de Dados:</strong> Criptografia hostil de servidores corporativos com exigência de resgates em criptomoedas.</li>                     <li><strong>Fraudes Financeiras e Engenharia Social:</strong> Campanhas automatizadas de phishing que imitam portais bancários e roubam identidades.</li>                     <li><strong>Exfiltração de Dados Sensíveis:</strong> Uso de cavalos de troia e malwares espiões para espionagem corporativa e violação da LGPD.</li>                     <li><strong>Ataques de Negação de Serviço (DDoS):</strong> Direcionamento de acessos falsos por redes zumbis (Botnets) para derrubar servidores.</li>                 </ul>              </section>               <section  id="metodologia">                  <h2>Metodologia e Fases da Investigação Forense</h2>                  <p>Diretrizes essenciais baseadas nas normas internacionais (ISO/IEC 27037):</p>                                    <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=1200&q=80" alt="Manutenção e Análise de Circuitos Eletrônicos" class="banner-imagem">                                    <ul class="lista-topicos">                      <li><strong>1. Identificação e Preservação Extrema:</strong> Mapeamento físico e lógico das mídias (RAM, discos, logs). Uso de bloqueadores de escrita para impedir alterações nos bits originais.</li>                      <li><strong>2. Coleta e Espelhamento Forense:</strong> Clonagem bit a bit gerando uma cópia idêntica. Cálculo imediato da assinatura matemática (Hash SHA-256) para blindar a integridade da evidência.</li>                      <li><strong>3. Análise Científica Profunda:</strong> Exame do espaço não alocado dos discos para resgatar arquivos deletados, remontagem de linhas do tempo e quebra de criptografias ocultas.</li>                  </ul>             </section>               <section  id="quiz-aba"  class="secao-quiz">                  <h2>Desafio  Forense  Digital</h2>                  <div  class="quiz-container">                                           <div  id="tela-nome"  class="tela-nome  ativo">                          <p  style="margin-bottom:  20px;">Antes  de  iniciar  a  investigação  simulada,  insira suas credenciais abaixo para autenticar o relatório:</p>
+                 <input  type="text"  id="nome-usuario"  class="input-nome"  placeholder="Digite seu nome completo..." autocomplete="off">
+                 <button  class="btn-geral"  onclick="iniciarQuiz()">Iniciar  Perícia</button>                      </div>                       <div  id="bloco-questoes"  class="questao-bloco">                          <h3  id="pergunta-titulo"  style="margin-bottom:  15px;  color:  var(--azul-neon);">Pergunta</h3>
+                 <div  id="opcoes-box"  class="opcoes-container"></div>                          <button  id="btn-proxima"  class="btn-proxima"  onclick="proximaQuestao()">Próxima Questão ➔</button>
+             </div>                       <div  id="tela-resultado"  class="tela-resultado">                          <h3 id="resultado-titulo" style="color: var(--sucesso); margin-bottom: 15px;">Diagnóstico Concluído!</h3>
+                 <p  id="mensagem-final"  style="margin-bottom:  25px;"></p>                          <button  class="btn-geral"  onclick="reiniciarQuiz()">Refazer  Teste</button>                      </div>                   </div>  
+    </section>                       </div>      </main>       <footer>          <p>&copy;  2026  Unidade  de  Computação  Forense.  Todos  os  direitos  reservados.</p>      </footer>       <script>
+  // Sistema de Controle de Abas Dinâmicas
+  function alternarAba(idSecao, botaoClicado) {
+      const secoes = document.querySelectorAll('main section');
+      secoes.forEach(sec => sec.classList.remove('secao-visible', 'secao-visivel')); 
+
+      const botoes = document.querySelectorAll('.aba-btn');
+      botoes.forEach(btn => btn.classList.remove('aba-ativa')); 
+
+      document.getElementById(idSecao).classList.add('secao-visivel');
+      botaoClicado.classList.add('aba-ativa');
+  }
+
+  // Banco de Dados do Desafio (Quiz Forense)
+  const questoes = [
+      {
+          pergunta: "1. Qual é o principal objetivo da Cadeia de Custódia na perícia digital?",
+          opcoes: [
+              "Acelerar a formatação do servidor invadido para normalizar o negócio.",
+              "Garantir a integridade absoluta e a não-contaminação da evidência desde a coleta até o tribunal.",
+              "Apagar permanentemente os rastros de acesso deixados pelos atacantes.",
+              "Instalar ferramentas de antivírus em computadores corporativos apreendidos."
+          ],
+          correta: 1
+      },
+      {
+          pergunta: "2. Quando um banco de dados é criptografado de forma hostile por cibercriminosos que passam a exigir resgates financeiros, estamos lidando com qual categoria de crime?",
+          opcoes: [
+              "Phishing de credenciais bancárias",
+              "Ataque de negação de serviço estruturado (DDoS)",
+              "Invasão por Ransomware",
+              "Engenharia Social Ativa"
+          ],
+          correta: 2
+      },
+      {
+          pergunta: "3. Qual é o nome da técnica especializada que reconstrói arquivos deletados em uma mídia a partir da leitura direta de seus cabeçalhos binários?",
+          opcoes: [
+              "File Carving",
+              "Criptoanálise Linear",
+              "Phishing Reverso",
+              "Backup Incremental Automatizado"
+          ],
+          correta: 0
+      }
+  ];
+
+  let indiceAtual = 0;
+  let pontuacao = 0;
+  let nomeAgente = "";
+
+  function iniciarQuiz() {
+      const inputNom = document.getElementById("nome-usuario");
+      if (inputNom.value.trim() === "") {
+          alert("Por favor, autentique suas credenciais inserindo seu nome.");
+          return;
+      }
+      nomeAgente = inputNom.value.trim();
+      document.getElementById("tela-nome").classList.remove("ativo");
+      document.getElementById("bloco-questoes").classList.add("ativo");
+      carregarQuestao();
+  }
+
+  function carregarQuestao() {
+      const q = questoes[indiceAtual];
+      document.getElementById("pergunta-titulo").innerText = q.pergunta;
+      const opcoesBox = document.getElementById("opcoes-box");
+      opcoesBox.innerHTML = "";
+      document.getElementById("btn-proxima").style.display = "none";
+
+      q.opcoes.forEach((opcao, index) => {
+          const btn = document.createElement("button");
+          btn.className = "opcao-btn";
+          btn.innerText = opcao;
+          btn.onclick = () => verificarResposta(index, btn);
+          opcoesBox.appendChild(btn);
+      });
+  }
+
+  function verificarResposta(indexSelecionado, botaoClicado) {
+      const q = questoes[indiceAtual];
+      const todosBotoes = document.querySelectorAll(".opcao-btn");
+
+      todosBotoes.forEach(b => b.disabled = true);
+
+      if (indexSelecionado === q.correta) {
+          botaoClicado.classList.add("correta");
+          pontuacao++;
+      } else {
+          botaoClicado.classList.add("incorreta");
+          todosBotoes[q.correta].classList.add("correta");
+      }
+
+      document.getElementById("btn-proxima").style.display = "block";
+  }
+
+  function proximaQuestao() {
+      indiceAtual++;
+      if (indiceAtual < questoes.length) {
+          carregarQuestao();
+      } else {
+          mostrarResultado();
+      }
+  }
+
+  // Função para disparar os dois canhões de confete simultâneos lateralmente
+  function dispararConfetes() {
+      const duracao = 3000;
+      const fim = Date.now() + duracao;
+
+      (function quadro() {
+          // Canhão Esquerdo
+          confetti({
+              particleCount: 5,
+              angle: 60,
+              spread: 55,
+              origin: { x: 0, y: 0.8 }
+          });
+          // Canhão Direito
+          confetti({
+              particleCount: 5,
+              angle: 120,
+              spread: 55,
+              origin: { x: 1, y: 0.8 }
+          });
+
+          if (Date.now() < fim) {
+              requestAnimationFrame(quadro);
+          }
+      }());
+  }
+
+  function mostrarResultado() {
+      document.getElementById("bloco-questoes").classList.remove("ativo");
+      const telaRes = document.getElementById("tela-resultado");
+      telaRes.classList.add("ativo");
+
+      const tituloRes = document.getElementById("resultado-titulo");
+      const msg = document.getElementById("mensagem-final");
+      const faixas = document.querySelectorAll(".faixa-pericia");
+
+      // Ativar o movimento e o piscar nas faixas amarelas e pretas
+      faixas.forEach(faixa => faixa.classList.add("faixa-animada"));
+
+      if (pontuacao === 3) {
+          tituloRes.innerText = "Parabéns, você acertou as 3 questões! 🎉";
+          tituloRes.style.color = "var(--sucesso)";
+          dispararConfetes();
+      } else if (pontuacao === 2) {
+          tituloRes.innerText = "Foi por pouco... 🙂";
+          tituloRes.style.color = "var(--amarelo-crime)";
+      } else {
+          tituloRes.innerText = "Diagnóstico Concluído!";
+          tituloRes.style.color = "var(--erro)";
+      }
+
+      msg.innerHTML = `<strong>Agente Perito: ${nomeAgente}</strong>, o diagnóstico da sua simulação foi concluído com sucesso.<br>Sua precisão investigativa foi de <strong>${pontuacao} de ${questoes.length} acertos</strong>.`;
+  }
+
+  function reiniciarQuiz() {
+      // Remover a animação das faixas ao resetar
+      const faixas = document.querySelectorAll(".faixa-pericia");
+      faixas.forEach(faixa => faixa.classList.remove("faixa-animada"));
+
+      indiceAtual = 0;
+      pontuacao = 0;
+      document.getElementById("tela-resultado").classList.remove("ativo");
+      document.getElementById("tela-nome").classList.add("ativo");
+      document.getElementById("nome-usuario").value = "";
+  }
+</script>
+</body>
+</html>
